@@ -15,13 +15,15 @@ pipeline {
             steps {
                 echo 'Testing the app'
 
-                bat '.venv\\Scripts\\python main.py'
+                
             }
         }
 
         stage('deploy') {
             steps {
                 echo 'Deploying the application'
+                bat '.venv\\Scripts\\python main.py'
+                echo 'Application deployed successfully, please check http://localhost:5000/hello'
             }
         }
     }
