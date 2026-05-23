@@ -5,14 +5,14 @@ pipeline {
         stage('build') {
             steps {
                 echo 'Buildnig the app'
-                run 'python -m venv .venv'
-                run '.venv\\Scripts\\activate && pip install -r requirements.txt'
+                sh 'python -m venv .venv'
+                sh '.venv\\Scripts\\pip install -r requirements.txt'
             }
         }
         stage('test'){
             steps {
                 echo 'Testing the app'
-                run '.venv\\Scripts\\activate && python main.py'
+                sh '.venv\\Scripts\\python main.py'
             }
         }
         stage('deploy') {
